@@ -14,24 +14,15 @@ const weatherData = (() => {
     },
     parseHourly(dataObj) {
       let hourlyData = [];
-      for (var i = 1; i < 9; i++) {
+      for (var i = 1; i < 8; i++) {
         hourlyData.push(dataObj.hourly[i]);
       }
       return hourlyData;
     },
     parseDaily(dataObj) {
-      let dailyData = {};
+      let dailyData = [];
       for (var i = 1; i < 8; i++) {
-        const dateObj = new Date(+dataObj.daily[i].dt * 1000);
-        const dayOfWeek = dateObj.toLocaleDateString('en-us', {
-          weekday: 'short',
-        });
-        const month = dateObj.toLocaleDateString('en-us', {
-          month: 'short',
-        });
-        const date = dateObj.getDate();
-        const dateStr = `${dayOfWeek} ${month} ${date}`;
-        dailyData[dateStr] = dataObj.daily[i];
+        dailyData.push(dataObj.daily[i]);
       }
       return dailyData;
     },

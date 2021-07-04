@@ -1,37 +1,78 @@
 import { weatherData } from './weatherData.js';
-import { forecast } from './forecast.js';
+import { card } from './card.js';
 import { helpers } from './helpers.js';
 
 weatherData
-  .pullCurrent('paris, id, us')
-  .then((response) => {
-    const lat = response.coord.lat;
-    const lon = response.coord.lon;
+  .pullCurrent('san francisco, us')
+  .then((currentData) => {
+    const lat = currentData.coord.lat;
+    const lon = currentData.coord.lon;
     return weatherData.pullEverything({ lat, lon }, 'imperial');
   })
-  .then((response) => {
-    console.log(response);
+  .then((oneCall) => {
+    console.log(oneCall);
+    const hourly = weatherData.parseHourly(oneCall);
+    const daily = weatherData.parseDaily(oneCall);
 
-    const hourly = weatherData.parseHourly(response);
-    const daily = weatherData.parseDaily(response);
-    displayDaily(daily);
+    const current = oneCall.current;
+    displayWeatherData(
+      current,
+      card.main,
+      'dateTime',
+      'humidity',
+      'condition',
+      'pop',
+      'windSpeed',
+      'sunrise',
+      'sunset'
+    );
+
+    hourly.forEach((day, index) => {
+      displayWeatherData(
+        day,
+        card.hourly[index],
+        'time',
+        'condition',
+        'temp',
+        'pop',
+        'windSpeed'
+      );
+    });
+
+    daily.forEach((day, index) => {
+      displayWeatherData(
+        day,
+        card.daily[index],
+        'date',
+        'condition',
+        'tempMax',
+        'tempMin',
+        'pop',
+        'windSpeed'
+      );
+    });
   });
 
-function displayDaily(data) {
-  const dataKeys = Object.keys(data);
-  console.log(dataKeys);
-  for (var i = 0; i < dataKeys.length; i++) {
-    console.log(i);
-    const dateEl = forecast.days[i].querySelector('.date');
-    dateEl.textContent = dataKeys[i];
-    const infoCondition = forecast.days[i].querySelector('.info-condition');
-    const tempHigh = forecast.days[i].querySelector('.info-high');
-    (tempHigh.textContent = data[dataKeys[i]].temp.max), 'F';
-    const tempLow = forecast.days[i].querySelector('.info-low');
-    (tempHigh.textContent = data[dataKeys[i]].temp.min), 'F';
-    const infoRain = forecast.days[i].querySelector('.info-rain');
-    infoRain.textContent = `${data[dataKeys[i]].pop * 100}%`;
-    const infoWind = forecast.days[i].querySelector('.info-wind');
-    infoWind.textContent = data[dataKeys[i]].wind_speed;
-  }
+function displayWeatherData(data, card, ...details) {
+  const info = {
+    date: helpers.getDateStr(data.dt),
+    dateTime: helpers.getDateTimeStr(data.dt),
+    time: helpers.getTimeStr(data.dt),
+    condition: data.weather[0].description,
+    sunrise: helpers.getTimeStr(data.sunrise),
+    sunset: helpers.getTimeStr(data.sunset),
+    temp: Math.round(data.temp),
+    tempMax: Math.round(data.temp.max),
+    tempMin: Math.round(data.temp.min),
+    humidity: data.humidity,
+    pop: data.pop,
+    windSpeed: data.wind_speed,
+  };
+
+  details.forEach((param) => {
+    const element = card.querySelector(
+      `.info-${param.replace(/[A-Z]/g, '-$&').toLowerCase()}` //turn camelCase into slug-case
+    );
+    element.textContent = info[param];
+  });
 }

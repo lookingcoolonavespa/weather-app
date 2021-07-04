@@ -1,3 +1,14 @@
-#forecast-wrapper {
+#main-details {
+  margin: 0 auto;
+}
+.series-wrapper {
+  display: flex;
+}
+.forecast-details-wrapper {
+  flex-grow: 1;
+  flex-basis: 0;
+  list-style: none;
+}
+.info-ctn {
   display: flex;
 }
