@@ -5,74 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="font/flaticon.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <main id="main-details"></main>
-    <aside id="hourly-daily-ctn">
-      <div class="hourly-daily-wrapper">
-        <ul id="hourly-wrapper" class="series-wrapper">
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-        </ul>
-        <ul id="daily-wrapper" class="series-wrapper">
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-          <li class="forecast-details-wrapper"></li>
-        </ul>
+    <main id="main-details" class="card-wrapper">
+      <!-- <div class="info-date-time"></div>
+      <div class="info-temp"></div>
+      <div class="info-condition"></div>
+      <div class="info-wrapper">
+        <div class="info-icon-ctn">
+          <i class="flaticon flaticon-sunrise"></i>
+          <div class="info-ctn">
+
+          </div>
+        </div>
+      </div> -->
+    </main>
+    <aside id="more-details-ctn">
+      <div class="btn-ctn">
+        <button type="button" id="hourly-btn">Hourly</button>
+        <button type="button" id="daily-btn">Daily</button>
+      </div>
+      <div class="hourly-daily-ctn">
+        <div class="hourly-daily-wrapper">
+          <ul id="hourly-wrapper" class="series-wrapper">
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+          </ul>
+          <ul id="daily-wrapper" class="series-wrapper">
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="slider-btn-ctn">
+        <span class="slider-btn"></span>
       </div>
     </aside>
-    <aside id="extra_details">
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-      <div>
-        <p></p>
-        <p></p>
-      </div>
-    </aside>
+    <!-- <aside id="extra_details"></aside> -->
   </body>
   <script type="module" src="/src/index.js"></script>
 </html>

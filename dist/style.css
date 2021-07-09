@@ -1,14 +1,118 @@
+body {
+  font-size: 14px;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 1fr 1fr;
+  margin: 0;
+  height: 100vh;
+}
 #main-details {
-  margin: 0 auto;
+  justify-self: center;
+  align-self: end;
+}
+#main-details.card-wrapper {
+  align-items: center;
+  padding: 30px;
+}
+#main-details .info-wrapper {
+  grid-column-gap: 30px;
+}
+#more-details-ctn {
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  align-items: center;
+  grid-template-rows: 174px auto;
+  grid-template-columns: auto 1fr;
+  max-width: 85%;
+}
+.hourly-daily-ctn {
+  overflow: hidden;
+  height: 174px;
+}
+.btn-ctn {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+.hourly-daily-wrapper {
+  overflow: hidden;
+  align-self: flex-start;
+  transition: transform 0.2s ease-in;
 }
 .series-wrapper {
   display: flex;
+  padding-left: 0;
+  column-gap: 10px;
+  margin: 0;
+  padding: 20px;
 }
 .forecast-details-wrapper {
   flex-grow: 1;
   flex-basis: 0;
   list-style: none;
+  justify-content: center;
+  padding: 15px 10px 5px 10px;
+  align-items: center;
+}
+.forecast-details-wrapper:first-child {
+  padding-left: 0;
+}
+.forecast-details-wrapper .info-icon-ctn {
+  column-gap: 8px;
+}
+.forecast-details-wrapper .info-wrapper {
+  column-gap: 20px;
+}
+.card-wrapper {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.info-icon-ctn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
+}
+.info-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.forecast-details-wrapper .info-wrapper {
+  max-width: 150px;
 }
 .info-ctn {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.info-label {
+  font-size: 12px;
+}
+.flaticon {
+  font-size: 25px;
+}
+.forecast-details-wrapper .flaticon {
+  font-size: 16px;
+}
+
+.info-date {
+  width: max-content;
+}
+.info-temp-max,
+.info-temp-min {
+  justify-self: center;
+}
+.slider-btn-ctn {
+  grid-column: 2;
+  margin-left: 20px;
+}
+.slider-btn {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
 }

@@ -1,0 +1,38 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?fc817e4a3055c4ae4a92688b1c70cb2a") format("truetype"),
+url("./flaticon.woff?fc817e4a3055c4ae4a92688b1c70cb2a") format("woff"),
+url("./flaticon.woff2?fc817e4a3055c4ae4a92688b1c70cb2a") format("woff2"),
+url("./flaticon.eot?fc817e4a3055c4ae4a92688b1c70cb2a#iefix") format("embedded-opentype"),
+url("./flaticon.svg?fc817e4a3055c4ae4a92688b1c70cb2a#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-sunset:before {
+    content: "\f101";
+}
+.flaticon-sunrise:before {
+    content: "\f102";
+}
+.flaticon-water:before {
+    content: "\f103";
+}
+.flaticon-wind:before {
+    content: "\f104";
+}
+.flaticon-humidity:before {
+    content: "\f105";
+}
+.flaticon-thermometer:before {
+    content: "\f106";
+}

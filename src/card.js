@@ -8,14 +8,14 @@ const card = (() => {
   const create = (() => ({
     infoDiv(className) {
       const div = document.createElement('div');
-      div.className = className;
+      div.classList.add(className);
       return div;
     },
     infoDivWithLabel(className, labelText) {
-      const div = document.createElement('div');
-      div.className = 'info-ctn';
+      const div = this.infoCtn();
       const label = document.createElement('span');
-      label.textContent = `${labelText}:`;
+      label.className = 'info-label';
+      label.textContent = `${labelText}`;
       const info = document.createElement('span');
       info.className = className;
 
@@ -24,10 +24,33 @@ const card = (() => {
 
       return div;
     },
+    infoDivWithIcon(className, labelText, iconClass) {
+      const ctn = document.createElement('div');
+      ctn.classList.add('info-icon-ctn');
+      let info;
+      labelText
+        ? (info = this.infoDivWithLabel(className, labelText))
+        : (info = this.infoDiv(className));
+      const icon = document.createElement('i');
+      icon.classList.add('flaticon', iconClass);
+      ctn.appendChild(icon);
+      ctn.appendChild(info);
+      return ctn;
+    },
+    weatherConditionIcon() {
+      const img = document.createElement('img');
+      img.classList.add('info-condition-icon');
+      return img;
+    },
     infoCtn() {
       const ctn = document.createElement('div');
-      ctn.className = 'info-ctn';
+      ctn.classList.add('info-ctn');
       return ctn;
+    },
+    infoWrapper() {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('info-wrapper');
+      return wrapper;
     },
   }))();
 
@@ -35,55 +58,98 @@ const card = (() => {
     const dateTime = create.infoDiv('info-date-time');
     const temp = create.infoDiv('info-temp');
     const condition = create.infoDiv('info-condition');
-    const sunrise = create.infoDivWithLabel('info-sunrise', 'Sunrise');
-    const sunset = create.infoDivWithLabel('info-sunset', 'Sunset');
-    const humidity = create.infoDivWithLabel('info-humidity', 'Humidity');
-    const pop = create.infoDivWithLabel('info-pop', 'Chance of Rain');
-    const windSpeed = create.infoDivWithLabel('info-wind-speed', 'Wind');
+
+    const sunWrapper = create.infoWrapper();
+    const sunrise = create.infoDivWithIcon(
+      'info-sunrise',
+      'Sunrise',
+      'flaticon-sunrise'
+    );
+    const sunset = create.infoDivWithIcon(
+      'info-sunset',
+      'Sunset',
+      'flaticon-sunset'
+    );
+    sunWrapper.appendChild(sunrise);
+    sunWrapper.appendChild(sunset);
+
+    const waterWrapper = create.infoWrapper();
+    const humidity = create.infoDivWithIcon(
+      'info-humidity',
+      'Humidity',
+      'flaticon-humidity'
+    );
+    const pop = create.infoDivWithIcon('info-pop', 'Rain', 'flaticon-water');
+    waterWrapper.appendChild(humidity);
+    waterWrapper.appendChild(pop);
+
+    const windWrapper = create.infoWrapper();
+    const windSpeed = create.infoDivWithIcon(
+      'info-wind-speed',
+      'Wind',
+      'flaticon-wind'
+    );
+    const feelsLike = create.infoDivWithIcon(
+      'info-feels-like',
+      'Feels Like',
+      'flaticon-thermometer'
+    );
+    windWrapper.appendChild(windSpeed);
+    windWrapper.appendChild(feelsLike);
 
     main.appendChild(dateTime);
     main.appendChild(temp);
     main.appendChild(condition);
-    main.appendChild(sunrise);
-    main.appendChild(sunset);
-    main.appendChild(humidity);
-    main.appendChild(pop);
-    main.appendChild(windSpeed);
+    main.appendChild(sunWrapper);
+    main.appendChild(waterWrapper);
+    main.appendChild(windWrapper);
   })();
 
   (function dailyInfoElements() {
     [...daily].forEach((card) => {
       const date = create.infoDiv('info-date');
-      const condition = create.infoDiv('info-condition');
-      const tempCtn = create.infoCtn();
+      const conditionIcon = create.weatherConditionIcon();
+      const tempWrapper = create.infoWrapper();
       const tempMax = create.infoDiv('info-temp-max');
       const tempMin = create.infoDiv('info-temp-min');
-      tempCtn.appendChild(tempMax);
-      tempCtn.appendChild(tempMin);
-      const pop = create.infoDivWithLabel('info-pop', 'Chance of rain');
-      const windSpeed = create.infoDivWithLabel('info-wind-speed', 'Wind');
+      tempWrapper.appendChild(tempMax);
+      tempWrapper.appendChild(tempMin);
+      const iconWrapper = create.infoWrapper();
+      const pop = create.infoDivWithIcon('info-pop', '', 'flaticon-water');
+      const windSpeed = create.infoDivWithIcon(
+        'info-wind-speed',
+        '',
+        'flaticon-wind'
+      );
+      iconWrapper.appendChild(pop);
+      iconWrapper.appendChild(windSpeed);
 
       card.appendChild(date);
-      card.appendChild(condition);
-      card.appendChild(tempCtn);
-      card.appendChild(pop);
-      card.appendChild(windSpeed);
+      card.appendChild(conditionIcon);
+      card.appendChild(tempWrapper);
+      card.appendChild(iconWrapper);
     });
   })();
 
   (function hourlyInfoElements() {
     [...hourly].forEach((card) => {
       const time = create.infoDiv('info-time');
-      const condition = create.infoDiv('info-condition');
+      const conditionIcon = create.weatherConditionIcon();
       const temp = create.infoDiv('info-temp');
-      const pop = create.infoDivWithLabel('info-pop', 'Chance of Rain');
-      const windSpeed = create.infoDivWithLabel('info-wind-speed', 'Wind');
+      const iconWrapper = create.infoWrapper();
+      const pop = create.infoDivWithIcon('info-pop', '', 'flaticon-water');
+      const windSpeed = create.infoDivWithIcon(
+        'info-wind-speed',
+        '',
+        'flaticon-wind'
+      );
+      iconWrapper.appendChild(pop);
+      iconWrapper.appendChild(windSpeed);
 
       card.appendChild(time);
-      card.appendChild(condition);
+      card.appendChild(conditionIcon);
       card.appendChild(temp);
-      card.appendChild(pop);
-      card.appendChild(windSpeed);
+      card.appendChild(iconWrapper);
     });
   })();
 

@@ -1,0 +1,49 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?fc817e4a3055c4ae4a92688b1c70cb2a") format("truetype"),
+url("./flaticon.woff?fc817e4a3055c4ae4a92688b1c70cb2a") format("woff"),
+url("./flaticon.woff2?fc817e4a3055c4ae4a92688b1c70cb2a") format("woff2"),
+url("./flaticon.eot?fc817e4a3055c4ae4a92688b1c70cb2a#iefix") format("embedded-opentype"),
+url("./flaticon.svg?fc817e4a3055c4ae4a92688b1c70cb2a#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "sunset": "\f101",
+    "sunrise": "\f102",
+    "water": "\f103",
+    "wind": "\f104",
+    "humidity": "\f105",
+    "thermometer": "\f106",
+);
+
+.flaticon-sunset:before {
+    content: map-get($flaticon-map, "sunset");
+}
+.flaticon-sunrise:before {
+    content: map-get($flaticon-map, "sunrise");
+}
+.flaticon-water:before {
+    content: map-get($flaticon-map, "water");
+}
+.flaticon-wind:before {
+    content: map-get($flaticon-map, "wind");
+}
+.flaticon-humidity:before {
+    content: map-get($flaticon-map, "humidity");
+}
+.flaticon-thermometer:before {
+    content: map-get($flaticon-map, "thermometer");
+}

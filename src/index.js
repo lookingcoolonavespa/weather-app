@@ -15,16 +15,19 @@ weatherData
     const daily = weatherData.parseDaily(oneCall);
 
     const current = oneCall.current;
+    current.pop = oneCall.hourly[0].pop;
     displayWeatherData(
       current,
       card.main,
-      'dateTime',
+      'dateTime', //arg must match displayWeatherData.info.key
       'humidity',
       'condition',
+      'temp',
       'pop',
       'windSpeed',
       'sunrise',
-      'sunset'
+      'sunset',
+      'feelsLike'
     );
 
     hourly.forEach((day, index) => {
@@ -32,7 +35,7 @@ weatherData
         day,
         card.hourly[index],
         'time',
-        'condition',
+        'conditionIcon',
         'temp',
         'pop',
         'windSpeed'
@@ -44,7 +47,7 @@ weatherData
         day,
         card.daily[index],
         'date',
-        'condition',
+        'conditionIcon',
         'tempMax',
         'tempMin',
         'pop',
@@ -59,20 +62,34 @@ function displayWeatherData(data, card, ...details) {
     dateTime: helpers.getDateTimeStr(data.dt),
     time: helpers.getTimeStr(data.dt),
     condition: data.weather[0].description,
+    conditionIcon: `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`,
     sunrise: helpers.getTimeStr(data.sunrise),
     sunset: helpers.getTimeStr(data.sunset),
     temp: Math.round(data.temp),
     tempMax: Math.round(data.temp.max),
     tempMin: Math.round(data.temp.min),
-    humidity: data.humidity,
-    pop: data.pop,
-    windSpeed: data.wind_speed,
+    humidity: Math.round(data.humidity),
+    pop: `${Math.round(data.pop)}%`,
+    windSpeed: `${Math.round(data.wind_speed)}mph`,
+    feelsLike: Math.round(data.feels_like),
   };
 
   details.forEach((param) => {
     const element = card.querySelector(
       `.info-${param.replace(/[A-Z]/g, '-$&').toLowerCase()}` //turn camelCase into slug-case
     );
-    element.textContent = info[param];
+    if (param.includes('Icon')) return element.setAttribute('src', info[param]);
+
+    element.innerHTML = info[param];
   });
 }
+
+const hourlyDailyWrapper = document.querySelector('.hourly-daily-wrapper');
+const hourlyBtn = document.getElementById('hourly-btn');
+hourlyBtn.addEventListener('click', () => {
+  hourlyDailyWrapper.style.transform = 'translateY(0px)';
+});
+const dailyBtn = document.getElementById('daily-btn');
+dailyBtn.addEventListener('click', () => {
+  hourlyDailyWrapper.style.transform = 'translateY(-174px)';
+});
