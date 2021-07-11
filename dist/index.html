@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" type="text/css" href="font/flaticon.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Weather App</title>
   </head>
   <body>
@@ -21,6 +27,75 @@
           </div>
         </div>
       </div> -->
+      <div class="info-date-time">Sat Jul 10 7:41 PM</div>
+      <div class="info-temp">65<span class="info-unit">°</span></div>
+      <div class="info-wrapper condition-wrapper">
+        <img
+          class="info-condition-icon"
+          src="http://openweathermap.org/img/wn/02d.png"
+        />
+        <div class="info-condition">few clouds</div>
+      </div>
+      <input
+        type="text"
+        class="info-city"
+        autofocus
+        onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+      />
+      <div class="info-wrapper">
+        <div class="info-icon-ctn">
+          <i class="flaticon flaticon-sunrise"></i>
+          <div class="info-ctn">
+            <span class="info-label">Sunrise</span
+            ><span class="info-sunrise">5:56 AM</span>
+          </div>
+        </div>
+        <div class="info-icon-ctn">
+          <i class="flaticon flaticon-sunset"></i>
+          <div class="info-ctn">
+            <span class="info-label">Sunset</span
+            ><span class="info-sunset">8:33 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="info-wrapper">
+        <div class="info-icon-ctn">
+          <i class="flaticon flaticon-humidity"></i>
+          <div class="info-ctn">
+            <span class="info-label">Humidity</span
+            ><span class="info-humidity"
+              >77<span class="info-unit">%</span></span
+            >
+          </div>
+        </div>
+        <div class="info-icon-ctn">
+          <i class="flaticon flaticon-water"></i>
+          <div class="info-ctn">
+            <span class="info-label">Rain</span
+            ><span class="info-pop">0<span class="info-unit">%</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="info-wrapper">
+        <div class="info-icon-ctn">
+          <i class="flaticon flaticon-wind"></i>
+          <div class="info-ctn">
+            <span class="info-label">Wind</span
+            ><span class="info-wind-speed"
+              >6<span class="info-unit">mph</span></span
+            >
+          </div>
+        </div>
+        <div class="info-icon-ctn">
+          <i class="flaticon flaticon-thermometer"></i>
+          <div class="info-ctn">
+            <span class="info-label">Feels Like</span
+            ><span class="info-feels-like"
+              >64<span class="info-unit">°</span></span
+            >
+          </div>
+        </div>
+      </div>
     </main>
     <aside id="more-details-ctn">
       <div class="btn-ctn">
@@ -28,32 +103,348 @@
         <button type="button" id="daily-btn">Daily</button>
       </div>
       <div class="hourly-daily-ctn">
-        <div class="hourly-daily-wrapper">
+        <div class="hourly-daily-wrapper" style="transform: translateY(0px)">
           <ul id="hourly-wrapper" class="series-wrapper">
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-time">8:00 PM</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/02d.png"
+              />
+              <div class="info-temp">65<span class="info-unit">°</span></div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    9<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-time">9:00 PM</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/02n.png"
+              />
+              <div class="info-temp">63<span class="info-unit">°</span></div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    9<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-time">10:00 PM</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/02n.png"
+              />
+              <div class="info-temp">62<span class="info-unit">°</span></div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    8<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-time">11:00 PM</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/02n.png"
+              />
+              <div class="info-temp">60<span class="info-unit">°</span></div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    8<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-time">12:00 AM</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/02n.png"
+              />
+              <div class="info-temp">58<span class="info-unit">°</span></div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    7<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-time">1:00 AM</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/03n.png"
+              />
+              <div class="info-temp">56<span class="info-unit">°</span></div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    7<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-time">2:00 AM</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/03n.png"
+              />
+              <div class="info-temp">56<span class="info-unit">°</span></div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    7<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
           <ul id="daily-wrapper" class="series-wrapper">
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
-            <li class="forecast-details-wrapper card-wrapper"></li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-date">Sun Jul 11</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/03d.png"
+              />
+              <div class="info-wrapper">
+                <div class="info-temp-max">
+                  64<span class="info-unit">°</span>
+                </div>
+                <div class="info-temp-min">
+                  54<span class="info-unit">°</span>
+                </div>
+              </div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    11<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-date">Mon Jul 12</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/03d.png"
+              />
+              <div class="info-wrapper">
+                <div class="info-temp-max">
+                  61<span class="info-unit">°</span>
+                </div>
+                <div class="info-temp-min">
+                  54<span class="info-unit">°</span>
+                </div>
+              </div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    15<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-date">Tue Jul 13</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/03d.png"
+              />
+              <div class="info-wrapper">
+                <div class="info-temp-max">
+                  64<span class="info-unit">°</span>
+                </div>
+                <div class="info-temp-min">
+                  54<span class="info-unit">°</span>
+                </div>
+              </div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    13<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-date">Wed Jul 14</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/01d.png"
+              />
+              <div class="info-wrapper">
+                <div class="info-temp-max">
+                  65<span class="info-unit">°</span>
+                </div>
+                <div class="info-temp-min">
+                  54<span class="info-unit">°</span>
+                </div>
+              </div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    15<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-date">Thu Jul 15</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/02d.png"
+              />
+              <div class="info-wrapper">
+                <div class="info-temp-max">
+                  61<span class="info-unit">°</span>
+                </div>
+                <div class="info-temp-min">
+                  55<span class="info-unit">°</span>
+                </div>
+              </div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    14<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-date">Fri Jul 16</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/03d.png"
+              />
+              <div class="info-wrapper">
+                <div class="info-temp-max">
+                  61<span class="info-unit">°</span>
+                </div>
+                <div class="info-temp-min">
+                  55<span class="info-unit">°</span>
+                </div>
+              </div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    13<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="forecast-details-wrapper card-wrapper">
+              <div class="info-date">Sat Jul 17</div>
+              <img
+                class="info-condition-icon"
+                src="http://openweathermap.org/img/wn/02d.png"
+              />
+              <div class="info-wrapper">
+                <div class="info-temp-max">
+                  66<span class="info-unit">°</span>
+                </div>
+                <div class="info-temp-min">
+                  55<span class="info-unit">°</span>
+                </div>
+              </div>
+              <div class="info-wrapper">
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-water"></i>
+                  <div class="info-pop">0<span class="info-unit">%</span></div>
+                </div>
+                <div class="info-icon-ctn">
+                  <i class="flaticon flaticon-wind"></i>
+                  <div class="info-wind-speed">
+                    14<span class="info-unit">mph</span>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
       <div class="slider-btn-ctn">
+        <i class="flaticon flaticon-back"></i>
         <span class="slider-btn"></span>
+        <i class="flaticon flaticon-right-arrow"></i>
       </div>
     </aside>
-    <!-- <aside id="extra_details"></aside> -->
   </body>
   <script type="module" src="/src/index.js"></script>
 </html>

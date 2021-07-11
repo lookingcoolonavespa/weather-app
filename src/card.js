@@ -54,104 +54,114 @@ const card = (() => {
     },
   }))();
 
-  (function mainInfoElements() {
-    const dateTime = create.infoDiv('info-date-time');
-    const temp = create.infoDiv('info-temp');
-    const condition = create.infoDiv('info-condition');
+  // (function mainInfoElements() {
+  //   const dateTime = create.infoDiv('info-date-time');
+  //   const conditionWrapper = create.infoWrapper();
+  //   conditionWrapper.classList.add('condition-wrapper');
+  //   const conditionIcon = create.weatherConditionIcon();
+  //   const condition = create.infoDiv('info-condition');
+  //   conditionWrapper.appendChild(conditionIcon);
+  //   conditionWrapper.appendChild(condition);
 
-    const sunWrapper = create.infoWrapper();
-    const sunrise = create.infoDivWithIcon(
-      'info-sunrise',
-      'Sunrise',
-      'flaticon-sunrise'
-    );
-    const sunset = create.infoDivWithIcon(
-      'info-sunset',
-      'Sunset',
-      'flaticon-sunset'
-    );
-    sunWrapper.appendChild(sunrise);
-    sunWrapper.appendChild(sunset);
+  //   const temp = create.infoDiv('info-temp');
+  //   const cityInput = document.createElement('input');
+  //   cityInput.type = 'text';
+  //   cityInput.classList.add('info-city');
 
-    const waterWrapper = create.infoWrapper();
-    const humidity = create.infoDivWithIcon(
-      'info-humidity',
-      'Humidity',
-      'flaticon-humidity'
-    );
-    const pop = create.infoDivWithIcon('info-pop', 'Rain', 'flaticon-water');
-    waterWrapper.appendChild(humidity);
-    waterWrapper.appendChild(pop);
+  //   const sunWrapper = create.infoWrapper();
+  //   const sunrise = create.infoDivWithIcon(
+  //     'info-sunrise',
+  //     'Sunrise',
+  //     'flaticon-sunrise'
+  //   );
+  //   const sunset = create.infoDivWithIcon(
+  //     'info-sunset',
+  //     'Sunset',
+  //     'flaticon-sunset'
+  //   );
+  //   sunWrapper.appendChild(sunrise);
+  //   sunWrapper.appendChild(sunset);
 
-    const windWrapper = create.infoWrapper();
-    const windSpeed = create.infoDivWithIcon(
-      'info-wind-speed',
-      'Wind',
-      'flaticon-wind'
-    );
-    const feelsLike = create.infoDivWithIcon(
-      'info-feels-like',
-      'Feels Like',
-      'flaticon-thermometer'
-    );
-    windWrapper.appendChild(windSpeed);
-    windWrapper.appendChild(feelsLike);
+  //   const waterWrapper = create.infoWrapper();
+  //   const humidity = create.infoDivWithIcon(
+  //     'info-humidity',
+  //     'Humidity',
+  //     'flaticon-humidity'
+  //   );
+  //   const pop = create.infoDivWithIcon('info-pop', 'Rain', 'flaticon-water');
+  //   waterWrapper.appendChild(humidity);
+  //   waterWrapper.appendChild(pop);
 
-    main.appendChild(dateTime);
-    main.appendChild(temp);
-    main.appendChild(condition);
-    main.appendChild(sunWrapper);
-    main.appendChild(waterWrapper);
-    main.appendChild(windWrapper);
-  })();
+  //   const windWrapper = create.infoWrapper();
+  //   const windSpeed = create.infoDivWithIcon(
+  //     'info-wind-speed',
+  //     'Wind',
+  //     'flaticon-wind'
+  //   );
+  //   const feelsLike = create.infoDivWithIcon(
+  //     'info-feels-like',
+  //     'Feels Like',
+  //     'flaticon-thermometer'
+  //   );
+  //   windWrapper.appendChild(windSpeed);
+  //   windWrapper.appendChild(feelsLike);
 
-  (function dailyInfoElements() {
-    [...daily].forEach((card) => {
-      const date = create.infoDiv('info-date');
-      const conditionIcon = create.weatherConditionIcon();
-      const tempWrapper = create.infoWrapper();
-      const tempMax = create.infoDiv('info-temp-max');
-      const tempMin = create.infoDiv('info-temp-min');
-      tempWrapper.appendChild(tempMax);
-      tempWrapper.appendChild(tempMin);
-      const iconWrapper = create.infoWrapper();
-      const pop = create.infoDivWithIcon('info-pop', '', 'flaticon-water');
-      const windSpeed = create.infoDivWithIcon(
-        'info-wind-speed',
-        '',
-        'flaticon-wind'
-      );
-      iconWrapper.appendChild(pop);
-      iconWrapper.appendChild(windSpeed);
+  //   main.appendChild(dateTime);
+  //   main.appendChild(temp);
+  //   main.appendChild(conditionWrapper);
+  //   main.appendChild(cityInput);
+  //   main.appendChild(sunWrapper);
+  //   main.appendChild(waterWrapper);
+  //   main.appendChild(windWrapper);
+  // })();
 
-      card.appendChild(date);
-      card.appendChild(conditionIcon);
-      card.appendChild(tempWrapper);
-      card.appendChild(iconWrapper);
-    });
-  })();
+  // (function dailyInfoElements() {
+  //   [...daily].forEach((card) => {
+  //     const date = create.infoDiv('info-date');
+  //     const conditionIcon = create.weatherConditionIcon();
+  //     const tempWrapper = create.infoWrapper();
+  //     const tempMax = create.infoDiv('info-temp-max');
+  //     const tempMin = create.infoDiv('info-temp-min');
+  //     tempWrapper.appendChild(tempMax);
+  //     tempWrapper.appendChild(tempMin);
+  //     const iconWrapper = create.infoWrapper();
+  //     const pop = create.infoDivWithIcon('info-pop', '', 'flaticon-water');
+  //     const windSpeed = create.infoDivWithIcon(
+  //       'info-wind-speed',
+  //       '',
+  //       'flaticon-wind'
+  //     );
+  //     iconWrapper.appendChild(pop);
+  //     iconWrapper.appendChild(windSpeed);
 
-  (function hourlyInfoElements() {
-    [...hourly].forEach((card) => {
-      const time = create.infoDiv('info-time');
-      const conditionIcon = create.weatherConditionIcon();
-      const temp = create.infoDiv('info-temp');
-      const iconWrapper = create.infoWrapper();
-      const pop = create.infoDivWithIcon('info-pop', '', 'flaticon-water');
-      const windSpeed = create.infoDivWithIcon(
-        'info-wind-speed',
-        '',
-        'flaticon-wind'
-      );
-      iconWrapper.appendChild(pop);
-      iconWrapper.appendChild(windSpeed);
+  //     card.appendChild(date);
+  //     card.appendChild(conditionIcon);
+  //     card.appendChild(tempWrapper);
+  //     card.appendChild(iconWrapper);
+  //   });
+  // })();
 
-      card.appendChild(time);
-      card.appendChild(conditionIcon);
-      card.appendChild(temp);
-      card.appendChild(iconWrapper);
-    });
-  })();
+  // (function hourlyInfoElements() {
+  //   [...hourly].forEach((card) => {
+  //     const time = create.infoDiv('info-time');
+  //     const conditionIcon = create.weatherConditionIcon();
+  //     const temp = create.infoDiv('info-temp');
+  //     const iconWrapper = create.infoWrapper();
+  //     const pop = create.infoDivWithIcon('info-pop', '', 'flaticon-water');
+  //     const windSpeed = create.infoDivWithIcon(
+  //       'info-wind-speed',
+  //       '',
+  //       'flaticon-wind'
+  //     );
+  //     iconWrapper.appendChild(pop);
+  //     iconWrapper.appendChild(windSpeed);
+
+  //     card.appendChild(time);
+  //     card.appendChild(conditionIcon);
+  //     card.appendChild(temp);
+  //     card.appendChild(iconWrapper);
+  //   });
+  // })();
 
   return { daily, main, hourly };
 })();

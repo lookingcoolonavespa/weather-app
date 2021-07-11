@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?fc817e4a3055c4ae4a92688b1c70cb2a") format("truetype"),
-url("./flaticon.woff?fc817e4a3055c4ae4a92688b1c70cb2a") format("woff"),
-url("./flaticon.woff2?fc817e4a3055c4ae4a92688b1c70cb2a") format("woff2"),
-url("./flaticon.eot?fc817e4a3055c4ae4a92688b1c70cb2a#iefix") format("embedded-opentype"),
-url("./flaticon.svg?fc817e4a3055c4ae4a92688b1c70cb2a#flaticon") format("svg");
+    src: url("./flaticon.ttf?bc08f3cdc74cb464cce9980dd4955eb1") format("truetype"),
+url("./flaticon.woff?bc08f3cdc74cb464cce9980dd4955eb1") format("woff"),
+url("./flaticon.woff2?bc08f3cdc74cb464cce9980dd4955eb1") format("woff2"),
+url("./flaticon.eot?bc08f3cdc74cb464cce9980dd4955eb1#iefix") format("embedded-opentype"),
+url("./flaticon.svg?bc08f3cdc74cb464cce9980dd4955eb1#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -27,6 +27,8 @@ $flaticon-map: (
     "wind": "\f104",
     "humidity": "\f105",
     "thermometer": "\f106",
+    "back": "\f107",
+    "right-arrow": "\f108",
 );
 
 .flaticon-sunset:before {
@@ -46,4 +48,10 @@ $flaticon-map: (
 }
 .flaticon-thermometer:before {
     content: map-get($flaticon-map, "thermometer");
+}
+.flaticon-back:before {
+    content: map-get($flaticon-map, "back");
+}
+.flaticon-right-arrow:before {
+    content: map-get($flaticon-map, "right-arrow");
 }
