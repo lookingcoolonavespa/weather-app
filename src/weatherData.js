@@ -7,7 +7,7 @@ const weatherData = (() => {
     current: null,
     pullCurrent(city) {
       return fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=2014da1160c5b3c595c8a87ba282f13a`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=2014da1160c5b3c595c8a87ba282f13a`
       )
         .then((response) => {
           if (response.ok) return response.json();
@@ -55,7 +55,7 @@ const weatherData = (() => {
         dateTime: helpers.getDateTimeStr(data.dt),
         time: helpers.getTimeStr(data.dt),
         condition: data.weather[0].description,
-        conditionIcon: `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`,
+        conditionIcon: `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`,
         sunrise: helpers.getTimeStr(data.sunrise),
         sunset: helpers.getTimeStr(data.sunset),
         temp: `${Math.round(data.temp)}<span class="info-unit">°</span>`,
