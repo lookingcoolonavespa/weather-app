@@ -21,7 +21,7 @@ body {
 body::before,
 #main-details::before,
 #more-details-ctn::before {
-  background: url(./2631s0cxdni61.jpg);
+  background: url(./myimage.jpg);
 }
 body::before {
   content: '';
