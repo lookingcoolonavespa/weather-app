@@ -10,28 +10,24 @@ const weatherData = (() => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=2014da1160c5b3c595c8a87ba282f13a`
       )
         .then((response) => {
+          console.log(response);
           if (response.ok) return response.json();
-          throw new Error('City not found');
+          throw new Error(response.statusText);
         })
         .catch((err) => {
-          const errorMsg = document.querySelector('.error-msg');
-          errorMsg.classList.remove('inactive');
-          errorMsg.textContent = err;
-          setTimeout(() => errorMsg.classList.add('inactive'), 2000);
-          this.refresh();
+          return err;
         });
     },
     pullEverything({ lat, lon }, units) {
       return fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=2014da1160c5b3c595c8a87ba282f13a`
       )
-        .then((response) => response.json())
+        .then((response) => {
+          if (response.ok) return response.json();
+          throw new Error(response.statusText);
+        })
         .catch((err) => {
-          const errorMsg = document.querySelector('.error-msg');
-          errorMsg.classList.remove('inactive');
-          errorMsg.textContent = err;
-          setTimeout(() => errorMsg.classList.add('inactive'), 2000);
-          this.refresh();
+          return err;
         });
     },
     parseHourly(dataObj) {
@@ -88,15 +84,15 @@ const weatherData = (() => {
       });
     },
     display(cityName, units) {
-      this.pullCurrent(cityName)
+      return this.pullCurrent(cityName)
         .then((currentData) => {
+          if (currentData.constructor === Error) throw currentData;
           const lat = currentData.coord.lat;
           const lon = currentData.coord.lon;
           return this.pullEverything({ lat, lon }, units);
         })
         .then((oneCall) => {
           this.refresh();
-          console.log(oneCall);
           const hourly = this.parseHourly(oneCall);
           const daily = this.parseDaily(oneCall);
 
@@ -145,17 +141,15 @@ const weatherData = (() => {
               'windSpeed'
             );
           });
+          return 'empty';
+        })
+        .catch((err) => {
+          const errorMsg = document.querySelector('.error-msg');
+          errorMsg.classList.remove('inactive');
+          errorMsg.textContent = err;
+          setTimeout(() => errorMsg.classList.add('inactive'), 2000);
+          this.refresh();
         });
-
-      return new Promise((resolve) => {
-        resolve(0);
-      }).catch((err) => {
-        const errorMsg = document.querySelector('.error-msg');
-        errorMsg.classList.remove('inactive');
-        errorMsg.textContent = err;
-        setTimeout(() => errorMsg.classList.add('inactive'), 2000);
-        this.refresh();
-      });
     },
     refresh() {
       document.documentElement.style.setProperty('--loading', '1');

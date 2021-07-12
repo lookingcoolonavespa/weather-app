@@ -2,7 +2,6 @@ import { weatherData } from './weatherData.js';
 import { slider } from './slider.js';
 
 const unitToggle = document.querySelector('.switch');
-console.log(unitToggle.checked);
 unitToggle.addEventListener('click', () => {
   let units = unitToggle.checked === true ? 'metric' : 'imperial';
   weatherData.display(weatherData.current.current.name, units);
@@ -72,7 +71,8 @@ window.addEventListener('resize', () => {
   );
 });
 const init = (() => {
-  weatherData
-    .display('san francisco', 'imperial')
-    .then(() => slider.showOrHideSliderBtns());
+  weatherData.display('san francisco', 'imperial').then(() => {
+    console.log('second');
+    slider.showOrHideSliderBtns();
+  });
 })();

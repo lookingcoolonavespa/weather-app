@@ -13,7 +13,7 @@ body {
   margin: 0;
   font-family: 'inter';
   color: rgba(0, 0, 0, 0.9);
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   justify-content: center;
   grid-template-rows: 0.8fr 0.6fr;
@@ -42,11 +42,13 @@ body::before {
   color: red;
 }
 .switch-holder {
+  z-index: 9;
   position: absolute;
   top: 20px;
   left: 20px;
 }
 .switch {
+  cursor: pointer;
   font-size: 20px;
   position: relative;
   outline: 0;
@@ -72,7 +74,6 @@ body::before {
   background-color: var(--display-color);
   border-radius: 50px;
   outline: none;
-  cursor: pointer;
   transition: all 0.3s;
 }
 .switch:checked:before {
@@ -357,5 +358,24 @@ button {
   .hourly-daily-wrapper {
     -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
     mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .switch {
+    width: 40px;
+    height: 20px;
+    font-size: 16px;
+  }
+  .switch:before {
+    height: 20px;
+    width: 20px;
+  }
+  .switch:checked:before {
+    transform: translateX(20px);
+  }
+  .error-msg {
+    z-index: 10;
+    background: white;
   }
 }
