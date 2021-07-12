@@ -2,6 +2,7 @@ import { weatherData } from './weatherData.js';
 import { slider } from './slider.js';
 
 const unitToggle = document.querySelector('.switch');
+console.log(unitToggle.checked);
 unitToggle.addEventListener('click', () => {
   let units = unitToggle.checked === true ? 'metric' : 'imperial';
   weatherData.display(weatherData.current.current.name, units);
