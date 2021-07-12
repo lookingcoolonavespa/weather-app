@@ -3,12 +3,13 @@ export { card };
 const card = (() => {
   const daily = document.getElementById('daily-wrapper').children;
   const main = document.getElementById('main-details');
+  const moreDetails = document.getElementById('more-details-ctn');
   const hourly = document.getElementById('hourly-wrapper').children;
-
   const create = (() => ({
+    forecastCard(series) {},
     infoDiv(className) {
       const div = document.createElement('div');
-      div.classList.add(className);
+      div.classList.add(className, 'loading');
       return div;
     },
     infoDivWithLabel(className, labelText) {
@@ -39,7 +40,7 @@ const card = (() => {
     },
     weatherConditionIcon() {
       const img = document.createElement('img');
-      img.classList.add('info-condition-icon');
+      img.classList.add('info-condition-icon', 'loading');
       return img;
     },
     infoCtn() {
@@ -49,7 +50,7 @@ const card = (() => {
     },
     infoWrapper() {
       const wrapper = document.createElement('div');
-      wrapper.classList.add('info-wrapper');
+      wrapper.classList.add('info-wrapper', 'loading');
       return wrapper;
     },
   }))();
@@ -163,5 +164,5 @@ const card = (() => {
   //   });
   // })();
 
-  return { daily, main, hourly };
+  return { daily, main, moreDetails, hourly };
 })();

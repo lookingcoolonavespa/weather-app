@@ -15,21 +15,14 @@
     <title>Weather App</title>
   </head>
   <body>
+    <div class="switch-holder">
+      <input type="checkbox" class="switch" checked="false" />
+    </div>
+    <div class="error-msg inactive">dfkjal;fjalk;fjak</div>
     <main id="main-details" class="card-wrapper">
-      <!-- <div class="info-date-time"></div>
-      <div class="info-temp"></div>
-      <div class="info-condition"></div>
-      <div class="info-wrapper">
-        <div class="info-icon-ctn">
-          <i class="flaticon flaticon-sunrise"></i>
-          <div class="info-ctn">
-
-          </div>
-        </div>
-      </div> -->
-      <div class="info-date-time">Sat Jul 10 7:41 PM</div>
-      <div class="info-temp">65<span class="info-unit">°</span></div>
-      <div class="info-wrapper condition-wrapper">
+      <div class="info-date-time loading">Sat Jul 10 7:41 PM</div>
+      <div class="info-temp loading">65<span class="info-unit">°</span></div>
+      <div class="info-wrapper condition-wrapper loading">
         <img
           class="info-condition-icon"
           src="http://openweathermap.org/img/wn/02d.png"
@@ -42,7 +35,7 @@
         autofocus
         onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
       />
-      <div class="info-wrapper">
+      <div class="info-wrapper loading">
         <div class="info-icon-ctn">
           <i class="flaticon flaticon-sunrise"></i>
           <div class="info-ctn">
@@ -58,7 +51,7 @@
           </div>
         </div>
       </div>
-      <div class="info-wrapper">
+      <div class="info-wrapper loading">
         <div class="info-icon-ctn">
           <i class="flaticon flaticon-humidity"></i>
           <div class="info-ctn">
@@ -76,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div class="info-wrapper">
+      <div class="info-wrapper loading">
         <div class="info-icon-ctn">
           <i class="flaticon flaticon-wind"></i>
           <div class="info-ctn">
@@ -99,12 +92,12 @@
     </main>
     <aside id="more-details-ctn">
       <div class="btn-ctn">
-        <button type="button" id="hourly-btn">Hourly</button>
-        <button type="button" id="daily-btn">Daily</button>
+        <button type="button" id="hourly-btn" class="btn">Hourly</button>
+        <button type="button" id="daily-btn" class="btn">Daily</button>
       </div>
-      <div class="hourly-daily-ctn">
+      <div class="hourly-daily-ctn loading">
         <div class="hourly-daily-wrapper" style="transform: translateY(0px)">
-          <ul id="hourly-wrapper" class="series-wrapper">
+          <ul id="hourly-wrapper" class="series-wrapper active">
             <li class="forecast-details-wrapper card-wrapper">
               <div class="info-time">8:00 PM</div>
               <img
@@ -255,10 +248,12 @@
               />
               <div class="info-wrapper">
                 <div class="info-temp-max">
-                  64<span class="info-unit">°</span>
+                  <span class="info-label">Max</span>
+                  66<span class="info-unit">°</span>
                 </div>
                 <div class="info-temp-min">
-                  54<span class="info-unit">°</span>
+                  <span class="info-label">Min</span>
+                  55<span class="info-unit">°</span>
                 </div>
               </div>
               <div class="info-wrapper">
@@ -282,10 +277,12 @@
               />
               <div class="info-wrapper">
                 <div class="info-temp-max">
-                  61<span class="info-unit">°</span>
+                  <span class="info-label">Max</span>
+                  66<span class="info-unit">°</span>
                 </div>
                 <div class="info-temp-min">
-                  54<span class="info-unit">°</span>
+                  <span class="info-label">Min</span>
+                  55<span class="info-unit">°</span>
                 </div>
               </div>
               <div class="info-wrapper">
@@ -309,10 +306,12 @@
               />
               <div class="info-wrapper">
                 <div class="info-temp-max">
-                  64<span class="info-unit">°</span>
+                  <span class="info-label">Max</span>
+                  66<span class="info-unit">°</span>
                 </div>
                 <div class="info-temp-min">
-                  54<span class="info-unit">°</span>
+                  <span class="info-label">Min</span>
+                  55<span class="info-unit">°</span>
                 </div>
               </div>
               <div class="info-wrapper">
@@ -336,10 +335,12 @@
               />
               <div class="info-wrapper">
                 <div class="info-temp-max">
-                  65<span class="info-unit">°</span>
+                  <span class="info-label">Max</span>
+                  66<span class="info-unit">°</span>
                 </div>
                 <div class="info-temp-min">
-                  54<span class="info-unit">°</span>
+                  <span class="info-label">Min</span>
+                  55<span class="info-unit">°</span>
                 </div>
               </div>
               <div class="info-wrapper">
@@ -363,9 +364,11 @@
               />
               <div class="info-wrapper">
                 <div class="info-temp-max">
-                  61<span class="info-unit">°</span>
+                  <span class="info-label">Max</span>
+                  66<span class="info-unit">°</span>
                 </div>
                 <div class="info-temp-min">
+                  <span class="info-label">Min</span>
                   55<span class="info-unit">°</span>
                 </div>
               </div>
@@ -390,9 +393,11 @@
               />
               <div class="info-wrapper">
                 <div class="info-temp-max">
-                  61<span class="info-unit">°</span>
+                  <span class="info-label">Max</span>
+                  66<span class="info-unit">°</span>
                 </div>
                 <div class="info-temp-min">
+                  <span class="info-label">Min</span>
                   55<span class="info-unit">°</span>
                 </div>
               </div>
@@ -417,9 +422,11 @@
               />
               <div class="info-wrapper">
                 <div class="info-temp-max">
+                  <span class="info-label">Max</span>
                   66<span class="info-unit">°</span>
                 </div>
                 <div class="info-temp-min">
+                  <span class="info-label">Min</span>
                   55<span class="info-unit">°</span>
                 </div>
               </div>
@@ -439,10 +446,17 @@
           </ul>
         </div>
       </div>
-      <div class="slider-btn-ctn">
-        <i class="flaticon flaticon-back"></i>
-        <span class="slider-btn"></span>
-        <i class="flaticon flaticon-right-arrow"></i>
+      <div class="slider-btn-ctn inactive">
+        <i
+          class="flaticon flaticon-back btn nav-btn"
+          style="pointer-events: none; opacity: 0.3"
+        ></i>
+        <span class="slider-btn btn active inactive"></span>
+        <span class="slider-btn btn inactive"></span>
+        <span class="slider-btn btn inactive"></span>
+        <span class="slider-btn btn inactive"></span>
+        <span class="slider-btn btn inactive"></span>
+        <i class="flaticon flaticon-right-arrow btn nav-btn"></i>
       </div>
     </aside>
   </body>
