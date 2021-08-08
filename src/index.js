@@ -3,7 +3,7 @@ import { slider } from './slider.js';
 
 const unitToggle = document.querySelector('.switch');
 unitToggle.addEventListener('click', () => {
-  let units = unitToggle.checked === true ? 'metric' : 'imperial';
+  const units = unitToggle.checked === true ? 'metric' : 'imperial';
   weatherData.display(weatherData.current.current.name, units);
 });
 
@@ -26,7 +26,8 @@ cityInput.addEventListener('keyup', (e) => {
   e.preventDefault();
   if (e.keyCode === 13) {
     document.documentElement.style.setProperty('--loading', '0');
-    weatherData.display(cityInput.value);
+    const units = unitToggle.checked === true ? 'metric' : 'imperial';
+    weatherData.display(cityInput.value, units);
   }
 });
 
