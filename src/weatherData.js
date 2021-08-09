@@ -10,7 +10,6 @@ const weatherData = (() => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=2014da1160c5b3c595c8a87ba282f13a`
       )
         .then((response) => {
-          console.log(response);
           if (response.ok) return response.json();
           throw new Error(response.statusText);
         })

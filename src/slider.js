@@ -19,6 +19,7 @@ const slider = (() => {
     navBtns,
     sliderBtnCtn,
     sliderBtns,
+    getTranslateValue,
     changeActive() {
       seriesWrappers.forEach((wrapper) => wrapper.classList.toggle('active'));
     },
@@ -51,7 +52,6 @@ const slider = (() => {
       daily.style.transform = 'translateX(0px)';
     },
     onNav(direction, imageCtn, frame, navBtnClicked, otherNavBtn) {
-      console.log(imageCtn, frame);
       slide();
       const newTranslateX = getTranslateValue(imageCtn);
       this.checkForDisableNavBtn(newTranslateX, frame, imageCtn, navBtnClicked);

@@ -8,16 +8,49 @@ unitToggle.addEventListener('click', () => {
 });
 
 const hourlyDailyWrapper = document.querySelector('.hourly-daily-wrapper');
+const [leftNavBtn, rightNavBtn] = slider.navBtns;
 const hourlyBtn = document.getElementById('hourly-btn');
 hourlyBtn.addEventListener('click', () => {
   slider.changeActive();
   slider.changeNumOfSliderBtns();
+  const active = slider.findActive();
+  slider.adjustActiveCounter(active, slider.sliderBtnCtn, slider.ctn, 'active');
+  slider.checkForDisableNavBtn(
+    slider.getTranslateValue(active),
+    slider.ctn,
+    active,
+    leftNavBtn,
+    rightNavBtn
+  );
+  slider.checkForEnableNavBtn(
+    slider.getTranslateValue(active),
+    slider.ctn,
+    active,
+    leftNavBtn,
+    rightNavBtn
+  );
   hourlyDailyWrapper.style.transform = 'translateY(0px)';
 });
 const dailyBtn = document.getElementById('daily-btn');
 dailyBtn.addEventListener('click', () => {
   slider.changeActive();
   slider.changeNumOfSliderBtns();
+  const active = slider.findActive();
+  slider.adjustActiveCounter(active, slider.sliderBtnCtn, slider.ctn, 'active');
+  slider.checkForDisableNavBtn(
+    slider.getTranslateValue(active),
+    slider.ctn,
+    active,
+    leftNavBtn,
+    rightNavBtn
+  );
+  slider.checkForEnableNavBtn(
+    slider.getTranslateValue(active),
+    slider.ctn,
+    active,
+    leftNavBtn,
+    rightNavBtn
+  );
   hourlyDailyWrapper.style.transform = 'translateY(-236px)';
 });
 
@@ -31,7 +64,6 @@ cityInput.addEventListener('keyup', (e) => {
   }
 });
 
-const [leftNavBtn, rightNavBtn] = slider.navBtns;
 leftNavBtn.addEventListener('click', () => {
   const active = slider.findActive();
   slider.onNav('left', active, slider.ctn, leftNavBtn, rightNavBtn);
@@ -72,8 +104,7 @@ window.addEventListener('resize', () => {
   );
 });
 const init = (() => {
-  weatherData.display('san francisco', 'imperial').then(() => {
-    console.log('second');
-    slider.showOrHideSliderBtns();
-  });
+  weatherData
+    .display('san francisco', 'imperial')
+    .then(() => slider.showOrHideSliderBtns());
 })();
